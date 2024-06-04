@@ -2,12 +2,19 @@ syntax = "proto3";
 
 package library;
 
-import "../book/api/book.proto";
-import "../book/api/movie.proto";
+option go_package = "/grpc";
+
+import "book/api/proto/book.proto";
+import "movie/api/proto/movie.proto";
 
 service LibraryService {
-    rpc GetBookInfo(GetBookInfoRequest) returns (GetBookInfoResponse);
-    rpc CreateBook(CreateBookRequest) returns (CreateBookResponse);
-    rpc UpdateBook(UpdateBookRequest) returns (UpdateBookResponse);
-    rpc DeleteBook(DeleteBookRequest) returns (DeleteBookResponse);
+    rpc GetBookInfo(book.GetBookInfoRequest) returns (book.GetBookInfoResponse);
+    rpc CreateBook(book.CreateBookRequest) returns (book.CreateBookResponse);
+    rpc UpdateBook(book.UpdateBookRequest) returns (book.UpdateBookResponse);
+    rpc DeleteBook(book.DeleteBookRequest) returns (book.DeleteBookResponse);
+
+    rpc GetMovie(movie.GetMovieRequest) returns (movie.GetMovieResponse);
+    rpc CreateMovie(movie.CreateMovieRequest) returns (movie.CreateMovieResponse);
+    rpc UpdateMovie(movie.UpdateMovieRequest) returns (movie.UpdateMovieResponse);
+    rpc DeleteMovie(movie.DeleteMovieRequest) returns (movie.DeleteMovieResponse);
 }

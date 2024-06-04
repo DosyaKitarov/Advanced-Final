@@ -39,7 +39,7 @@ func main() {
 	}
 	g.RegisterBookInfoServiceServer(grpcServer, bookInfoServer)
 
-	logger.InfoKV(ctx, "Starting server on port", port)
+	logger.Info(ctx, "Starting server on port: ", port)
 
 	if err := grpcServer.Serve(listener); err != nil {
 		logger.Fatal(ctx, "Failed to serve:", err)
