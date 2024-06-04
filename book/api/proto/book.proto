@@ -1,0 +1,53 @@
+syntax = "proto3";
+
+package bookinfo;
+
+option go_package = "advanced/grpc";
+
+service BookInfoService {
+    rpc GetBookInfo(GetBookInfoRequest) returns (GetBookInfoResponse);
+    rpc CreateBook(CreateBookRequest) returns (CreateBookResponse);
+    rpc UpdateBook(UpdateBookRequest) returns (UpdateBookResponse);
+    rpc DeleteBook(DeleteBookRequest) returns (DeleteBookResponse);
+}
+
+message GetBookInfoRequest {
+    uint32 book_id = 1;
+}
+
+message GetBookInfoResponse {
+    uint32 book_id = 1;
+    string title = 2;
+    string author = 3;
+}
+
+message CreateBookRequest {
+    string title = 1;
+    string author = 2;
+}
+
+message CreateBookResponse {
+    uint32 book_id = 1;
+    string title = 2;
+    string author = 3;
+}
+
+message UpdateBookRequest {
+    uint32 book_id = 1;
+    string title = 2;
+    string author = 3;
+}
+
+message UpdateBookResponse {
+    uint32 book_id = 1;
+    string title = 2;
+    string author = 3;
+}
+
+message DeleteBookRequest {
+    uint32 book_id = 1;
+}
+
+message DeleteBookResponse {
+    string message = 1;
+}

@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package library;
+
+import "../book/api/book.proto";
+import "../book/api/movie.proto";
+
+service LibraryService {
+    rpc GetBookInfo(GetBookInfoRequest) returns (GetBookInfoResponse);
+    rpc CreateBook(CreateBookRequest) returns (CreateBookResponse);
+    rpc UpdateBook(UpdateBookRequest) returns (UpdateBookResponse);
+    rpc DeleteBook(DeleteBookRequest) returns (DeleteBookResponse);
+}
