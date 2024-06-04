@@ -1,1 +1,0 @@
-protoc --proto_path=. --go_out=library/pkg/grpc --go-grpc_out=library/pkg/grpc book/api/proto/book.proto library/api/proto/library.proto
